@@ -16,6 +16,7 @@ class ZookeeperclientcConan(ConanFile):
     generators = "cmake"
     exports_sources = "generated/*"
     src_folder = "./zookeeper/zookeeper-client/zookeeper-client-c"
+    short_paths = True
 
     def source(self):
         self.run("git clone https://github.com/apache/zookeeper.git")
