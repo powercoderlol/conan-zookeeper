@@ -1,0 +1,24 @@
+build: false
+
+environment:
+    PYTHON: "C:\\Python37"
+
+    CONAN_REFERENCE: "zookeeper-client-c/0.1"
+    CONAN_USERNAME: "powercoderlol"
+    CONAN_LOGIN_USERNAME: "powercoderlol"
+    CONAN_CHANNEL: "testing"
+    CONAN_UPLOAD: "https://api.bintray.com/conan/powercoderlol/zookeeper_c_api"
+
+    matrix:
+        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+          CONAN_VISUAL_VERSIONS: 15
+
+
+install:
+  - set PATH=%PATH%;%PYTHON%/Scripts/
+  - pip.exe install conan --upgrade
+  - pip.exe install conan_package_tools
+  - conan user # It creates the conan data directory
+
+test_script:
+  - python build.py
